@@ -7,16 +7,18 @@ import Hero from "./components/Hero.jsx";
 import ServiceCard from "./components/ServiceCard.jsx";
 import MediaCard from "./components/MediaCard.jsx";
 import NewsCard from "./components/NewsCard.jsx";
+import Footer from "./components/Footer.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Navbar />
-    <div className='container mx-auto '>
+    <div className="container mx-auto ">
       <Hero />
       <App />
     </div>
     <ServiceCard />
     <MediaCard />
     <NewsCard />
+    <Footer />
   </StrictMode>
 );
