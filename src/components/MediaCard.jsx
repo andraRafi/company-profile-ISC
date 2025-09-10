@@ -2,7 +2,7 @@ const MediaCard = () => {
   return (
     <div className='mt-15 mb-15'>
       <div
-        className='max-w-2xl mx-auto rounded-xl overflow-hidden  bg-white
+        className='max-w-2xl mx-auto rounded-xl overflow-hidden  bg-gray-100
                     transform transition duration-300 hover:-translate-y-3 hover:shadow-xl'
       >
         <img
