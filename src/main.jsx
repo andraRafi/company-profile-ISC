@@ -12,13 +12,11 @@ import Footer from "./components/Footer.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Navbar />
-    <div className="container mx-auto ">
-      <Hero />
-      <App />
-    </div>
+    <Hero />
+    <App />
     <ServiceCard />
     <MediaCard />
     <NewsCard />
     <Footer />
-  </StrictMode>
+  </StrictMode>,
 );
