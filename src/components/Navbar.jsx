@@ -1,8 +1,12 @@
 import { useState } from "react";
 import shellLogo from "../assets/shell-seeklogo.png";
+import { IoMdSearch } from "react-icons/io";
+import { HiMenuAlt4 } from "react-icons/hi";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Navbar = () => {
   const [active, setActive] = useState("Beranda");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menus = [
     { name: "Beranda", href: "#" },
@@ -12,149 +16,97 @@ const Navbar = () => {
     { name: "Tentang Kami", href: "#" },
   ];
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className='navbar max-w-full m-auto border-b border-gray-200'>
-      <div className='max-w-[1400px] mx-auto px-6'>
-        <div className='top-header m-auto max-w-page flex'>
-          <div className='grow'></div>
-          <div className='flex'>
-            <div className='grow-0'>
-              <div className='h-full transition px-1 pb-2 pt-1'>
-                <a
-                  class='clickable cursor-pointer h-full'
-                  target='_blank'
-                  href='https://support.shell.id/hc/id'
-                  rel='noopener'
-                >
-                  <div className='h-full transition hover:bg-txa/10 pe-2 py-1 flex space-x-2 items-center justify-center rounded overflow-hidden w-full min-h-8  ps-2 '>
-                    <div className='grow'>
-                      <span className='space-x-1'>
-                        <span className='text-sm text-gray-700'>
-                          Bantuan dan Layanan Pelanggan
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className='grow-0'>
-              <div className='h-full transition px-1 pb-2 pt-1'>
-                <a
-                  class='clickable cursor-pointer h-full'
-                  target='_blank'
-                  href='https://support.shell.id/hc/id'
-                  rel='noopener'
-                >
-                  <div className='h-full transition hover:bg-txa/10 pe-2 py-1 flex space-x-2 items-center justify-center rounded overflow-hidden w-full min-h-8  ps-2 '>
-                    <div className='grow'>
-                      <span className='space-x-1'>
-                        <span className='text-sm text-gray-700'>karir</span>
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className='grow-0'>
-              <div className='h-full transition px-1 pb-2 pt-1'>
-                <a
-                  class='clickable cursor-pointer h-full'
-                  target='_blank'
-                  href='https://support.shell.id/hc/id'
-                  rel='noopener'
-                >
-                  <div className='h-full transition hover:bg-txa/10 pe-2 py-1 flex space-x-2 items-center justify-center rounded overflow-hidden w-full min-h-8  ps-2 '>
-                    <div className='grow'>
-                      <span className='space-x-1'>
-                        <span className='text-sm text-gray-700'>
-                          Ruang media
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className='grow-0'>
-              <div className='h-full transition px-1 pb-2 pt-1'>
-                <a
-                  class='clickable cursor-pointer h-full'
-                  target='_blank'
-                  href='https://support.shell.id/hc/id'
-                  rel='noopener'
-                >
-                  <div className='h-full transition hover:bg-txa/10 pe-2 py-1 flex space-x-2 items-center justify-center rounded overflow-hidden w-full min-h-8  ps-2 '>
-                    <div className='grow'>
-                      <span className='space-x-1'>
-                        <span className='text-sm text-gray-700'>
-                          change market
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
+    <div className="border-b-2 border-gray-300">
+      <div className="container mx-auto w-full px-2 md:px-4">
+        <nav>
+          <div>
+            <ul className="text-md flex justify-end gap-5 py-4">
+              <li>Bantuan dan Layanan Pelanggan</li>
+              <li>Karir</li>
+              <li>Ruang Media</li>
+              <li>Change Market</li>
+            </ul>
           </div>
-        </div>
-        {/* Menu */}
-        <div className='flex items-center'>
-          <a href='#' className='clickable cursor-pointer'>
-            <div className='min-h-16 border-txa flex'>
-              <div className='flex shrink-0 grow-0 items-center'>
-                <div
-                  className='bg-no-repeat bg-center bg-contain h-16'
-                  style={{
-                    backgroundImage: "var(--logo)",
-                    width: "calc(var(--logo-ratio) * 64px)",
-                  }}
-                ></div>
-
-                {/* Logo pakai import gambar */}
-                <img src={shellLogo} alt='Shell Logo' className='h-12 ms-2' />
-              </div>
-            </div>
+        </nav>
+        <div className="nav-wrapper flex items-center justify-between gap-5 py-4 md:justify-start">
+          <a href="#" className="brand-logo flex items-center gap-2">
+            <img
+              src={shellLogo}
+              alt="Shell Logo"
+              className="logo"
+              width={45}
+              height={45}
+            />
           </a>
-          <div className='flex' role='list'>
-            {menus.map((menu) => (
-              <div
-                key={menu.name}
-                className='shrink tracking-tight relative'
-                role='listitem'
-              >
-                <div
-                  className={`h-full transition px-1 pb-1 pt-2 border-b-4 ${
-                    active === menu.name
-                      ? "border-yellow-500"
-                      : "border-transparent"
-                  }`}
-                >
-                  <a
-                    href={menu.href}
-                    className='clickable cursor-pointer h-full'
-                    onClick={() => setActive(menu.name)}
-                  >
-                    <div className='h-full transition hover:bg-txa/10 pe-2 py-1 flex space-x-2 items-center justify-center rounded overflow-hidden w-full min-h-12 ps-2'>
-                      <span className='text-sm text-gray-700'>{menu.name}</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
 
-          <div className='grow'></div>
-          <div role='listitem' className='flex shrink'>
-            <div role='listitem'>
-              <div className='h-full transition border-bgb/0 p-2'>
-                <i class='ri-search-line'></i>
-              </div>
+          {/* Tablet/Desktop Menu */}
+          <div className="hidden w-full items-center justify-between md:flex">
+            <div className="flex items-center gap-6">
+              {menus.map((menu) => (
+                <a
+                  key={menu.name}
+                  href={menu.href}
+                  className={`${
+                    active === menu.name ? "font-semibold text-red-500" : ""
+                  } hover:text-red-400`}
+                  onClick={() => setActive(menu.name)}
+                >
+                  {menu.name}
+                </a>
+              ))}
+            </div>
+            <div className="ml-auto">
+              <IoMdSearch className="cursor-pointer" size={22} />
             </div>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="flex items-center gap-4 md:hidden">
+            <IoMdSearch className="cursor-pointer" size={22} />
+            {!isMenuOpen ? (
+              <HiMenuAlt4
+                className="cursor-pointer"
+                size={28}
+                onClick={toggleMenu}
+              />
+            ) : (
+              <IoCloseSharp
+                className="cursor-pointer"
+                size={28}
+                onClick={toggleMenu}
+              />
+            )}
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <ul className="flex flex-col gap-4 border-t border-b border-gray-200 bg-white px-4 py-4 md:hidden">
+            {menus.map((menu) => (
+              <li key={menu.name}>
+                <a
+                  href={menu.href}
+                  className={`block ${
+                    active === menu.name ? "font-semibold text-red-500" : ""
+                  } hover:text-red-400`}
+                  onClick={() => {
+                    setActive(menu.name);
+                    setIsMenuOpen(false); // Close menu after click
+                  }}
+                >
+                  {menu.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-    </nav>
+    </div>
   );
 };
 
